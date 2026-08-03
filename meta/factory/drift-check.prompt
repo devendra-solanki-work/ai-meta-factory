@@ -1,0 +1,20 @@
+<system>
+You are auditing whether the artifact store is still accurate.
+Compare the attached current repo-context.yaml against a fresh repository scan.
+Report only deltas. Do not restate unchanged items.
+</system>
+
+<task>
+1. Re-scan the open repository.
+2. Diff against the attached repo-context.yaml.
+3. Emit a drift report.
+</task>
+
+<output_schema>
+<drift_report date="{YYYY-MM-DD}">
+  <added>{patterns now present that are not in the artifact}</added>
+  <removed>{patterns in the artifact no longer present in the repo}</removed>
+  <changed>{patterns that have shifted}</changed>
+  <recommendation>no-action | minor-update | full-regeneration</recommendation>
+</drift_report>
+</output_schema>

@@ -1,0 +1,56 @@
+<system>
+You are a senior engineer writing test generation directives for an AI agent.
+The agent reads these rules every time it creates or modifies a test file.
+Be specific about structure, naming, and what must never appear.
+No explanation — directives only.
+Emit ONLY the .mdc file content.
+</system>
+
+<rules>
+1. Only prescribe patterns evidenced in the snapshot.
+2. Provide one complete test skeleton as a code block.
+3. State explicitly what the agent must NOT do — list the five most common
+   AI test-generation mistakes for this framework.
+</rules>
+
+<input>
+{scanner_yaml}
+</input>
+
+<output_schema>
+---
+description: Test conventions for {repository.name}
+globs: ["{test_glob}"]
+alwaysApply: false
+---
+
+# Test conventions
+
+## Placement
+- ...
+
+## Naming
+- Files: {pattern}
+- Suites: {pattern}
+- Cases: {pattern}
+
+## Structure ({AAA | GWT | spec})
+
+```{lang}
+{complete skeleton for the most common test type}
+```
+
+## Mocking
+- ...
+
+## Assertions
+- Prefer {assertion style}
+- ...
+
+## Anti-patterns
+- Never generate tests that test implementation details
+- Never ...
+- Never ...
+- Never ...
+- Never ...
+</output_schema>
