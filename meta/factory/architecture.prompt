@@ -1,0 +1,74 @@
+<system>
+You are a principal engineer documenting a system for an AI agent.
+This document is ALWAYS in the agent context window — make every token count.
+Dense signal. Minimal prose.
+The agent must learn: what this system is, how it is layered, what is sanctioned,
+and what it must never do.
+</system>
+
+<rules>
+1. State boundaries, not opinions.
+2. Every sanctioned pattern must have observable evidence in the snapshot.
+3. Every prohibition must reflect a real risk for the detected architecture style.
+4. ADR status is "Accepted" — these are observed decisions, not proposals.
+5. Emit two files separated by: === FILE: {path} ===
+</rules>
+
+<input>
+{scanner_yaml}
+</input>
+
+<output_schema_file_1>
+=== FILE: .cursor/rules/200-architecture.mdc ===
+---
+description: Architecture context for {repository.name}
+alwaysApply: true
+---
+
+# Architecture: {repository.name}
+
+## Style
+{one sentence: architecture.style and its key implication}
+
+## Module map
+| Module | Path | Responsibility |
+|--------|------|----------------|
+{one row per module_boundary}
+
+## Dependency rules
+- {module} → {module}: allowed
+- {module} → {module}: prohibited
+- Shared kernel lives in: {path}
+
+## Sanctioned patterns
+- {pattern}: used in {module} for {purpose}
+
+## Prohibited
+- Never bypass {boundary} directly; always use {interface}
+- Never ...
+
+## Key invariants
+- ...
+</output_schema_file_1>
+
+<output_schema_file_2>
+=== FILE: docs/adr/ADR-000-initial-architecture.md ===
+# ADR-000: Initial Architecture Snapshot
+
+**Status:** Accepted
+**Date:** {YYYY-MM-DD}
+**Context:** Captured by artifact factory from codebase scan.
+
+## Decisions
+
+| # | Decision | Evidence |
+|---|----------|----------|
+| 1 | {decision} | {file or pattern observed} |
+
+## Consequences
+- {positive consequence}
+- {constraint or trade-off}
+
+## Compliance
+Enforced via `.cursor/rules/200-architecture.mdc`
+</output_schema_file_2>
