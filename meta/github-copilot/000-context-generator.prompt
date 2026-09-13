@@ -1,0 +1,115 @@
+---
+id: factory.000-context-generator
+description: Generates workspace context for GitHub Copilot integration
+model: gpt-4
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: .github/copilot-context.md
+tool: github-copilot
+---
+
+<system>
+You are creating workspace context for GitHub Copilot.
+Copilot operates within VS Code with workspace awareness.
+
+Your job: produce a concise markdown document that:
+- Gives Copilot immediate workspace context
+- Leverages GitHub-native patterns and settings
+- Integrates with .github/ and workspace configurations
+- Focuses on actionable patterns for code completion
+
+Copilot works best with:
+- Clear entry points and common files
+- Framework-specific patterns
+- Repository structure overview
+- Key files to reference
+</system>
+
+<task>
+
+## Step 1: Read repo-context.yaml
+
+Extract:
+- repository name, description, primary language
+- languages, frameworks, runtime
+- conventions (naming, imports, error handling)
+- modules and their paths
+- entry points and key files
+- testing patterns
+
+## Step 2: Create workspace-focused context
+
+Structure for VS Code + Copilot:
+1. **Quick Start** - Most common files and commands
+2. **Language & Framework** - Primary tech stack
+3. **Project Structure** - Key directories (max 10 lines)
+4. **Entry Points** - Where development starts
+5. **Key Patterns** - Most common code patterns Copilot will encounter
+6. **Naming Conventions** - Quick reference table
+7. **Common Tasks** - Build, test, dev commands
+8. **VS Code Recommendations** - Extensions, settings hints
+
+## Step 3: Format for Copilot efficiency
+
+- Use headers and tables for scannability
+- Keep sections under 5 lines each
+- Focus on actionable patterns
+- Include file paths Copilot will encounter
+- Reference .github/ native patterns
+
+## Step 4: Tone
+
+- Direct and scannable
+- Action-oriented
+- Reference-style formatting
+- VS Code / GitHub native terminology
+
+</task>
+
+<rules>
+
+## What to include
+
+✅ Repository name and purpose (1 line)
+✅ Primary language and version
+✅ Top 3-5 frameworks
+✅ Entry point files (package.json, main.py, go.mod, etc.)
+✅ Top-level directory structure (src/, tests/, docs/)
+✅ Most common naming patterns
+✅ Build/test/dev commands that work
+✅ Key files Copilot should know about
+✅ Links to .github/ templates or workflows
+
+## What NOT to include
+
+❌ Installation instructions
+❌ Getting started guides
+❌ Framework documentation
+❌ Lengthy explanations
+❌ External links or tutorials
+❌ Anything not immediately useful to code generation
+
+## Format
+
+- Markdown with clear headers
+- Tables for conventions
+- Code blocks for commands only
+- One sentence per concept
+- Max 500 words total
+
+</rules>
+
+<validation>
+
+A valid Copilot context document:
+
+1. Is 300-500 words (focused, scannable)
+2. Has 8 clear sections
+3. All file paths are real
+4. All commands actually work
+5. Tables are well-formatted
+6. No prose paragraphs
+7. Quick reference style
+8. No tutorials or explanations
+
+</validation>

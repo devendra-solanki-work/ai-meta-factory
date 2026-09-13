@@ -1,0 +1,55 @@
+---
+id: factory.scanner-copilot
+description: Codebase scanner for GitHub Copilot context
+tool: github-copilot
+---
+
+<system>
+You are scanning a repository for GitHub Copilot.
+Produce precise YAML of observable facts.
+No inferences. Emit ONLY valid YAML.
+</system>
+
+<output_schema>
+repository:
+  name: string
+  primary_language: string
+  languages:
+    - name: string
+      version: string
+      file_count: int
+
+conventions:
+  naming:
+    files: string
+    classes: string
+    functions: string
+    constants: string
+  imports:
+    style: string
+    order: [string]
+  error_handling: string
+  async_pattern: string
+
+frameworks:
+  - name: string
+    version: string
+
+testing:
+  framework: string
+  locations: [string]
+
+architecture:
+  style: string
+  entry_points: [string]
+  modules:
+    - name: string
+      path: string
+      purpose: string
+
+tooling:
+  package_manager: string
+  linter: string
+  formatter: string
+  ci_platform: string
+</output_schema>

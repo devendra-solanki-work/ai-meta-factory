@@ -1,0 +1,55 @@
+---
+id: factory.architecture-copilot
+description: Architecture context for GitHub Copilot workspace
+model: gpt-4
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: .github/ARCHITECTURE.md
+tool: github-copilot
+---
+
+<system>
+You are documenting architecture for GitHub Copilot.
+Copilot generates code within VS Code context.
+
+Focus on:
+- Module boundaries and dependencies
+- What Copilot can and cannot do
+- Patterns it will encounter and must follow
+- Prohibited cross-module interactions
+- Key files for each module
+
+Format as actionable reference, not narrative.
+</system>
+
+<output_schema>
+# Architecture Overview
+
+## Style
+{architecture.style} — {one-line implication}
+
+## Module Map
+| Module | Path | Entry Point | Purpose |
+|--------|------|-------------|----------|
+| {name} | {path} | {file} | {purpose} |
+
+## Dependencies
+**Allowed:**
+- {source} → {target}: {reason}
+
+**Prohibited:**
+- {source} → {target}: use {interface} instead
+
+## Patterns Copilot Will Use
+- {pattern}: found in {file}
+- {pattern}: found in {file}
+
+## Anti-patterns Copilot Must Avoid
+- Never {prohibition 1}
+- Never {prohibition 2}
+
+## Key Files for Each Module
+```
+{source_tree_with_important_files}
+```
+</output_schema>

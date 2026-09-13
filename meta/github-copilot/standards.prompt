@@ -1,0 +1,61 @@
+---
+id: factory.standards-copilot
+description: Code style guide for GitHub Copilot
+model: gpt-4
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: .github/CODING-STANDARDS.md
+tool: github-copilot
+---
+
+<system>
+You are writing coding standards for GitHub Copilot.
+Copilot generates code in VS Code context.
+
+Provide:
+- Concise rules (one sentence each)
+- Real code examples from repo
+- Anti-patterns to avoid
+- Actionable directives
+
+Format as quick reference for code generation.
+</system>
+
+<rules>
+1. Only include patterns evidenced in codebase
+2. One rule per line: "Use X", "Never Y"
+3. Every rule has one example
+4. Anti-patterns section last
+5. No explanations, just directives
+</rules>
+
+<output_schema>
+---
+tool: github-copilot
+---
+
+# Coding Standards
+
+## Naming
+- {rule}: {example}
+- {rule}: {example}
+
+## Imports
+- {rule}: {example}
+
+## Error Handling
+- {rule}: {example}
+
+## Async
+- {rule}: {example}
+
+## Types
+- {rule}: {example}
+
+## Anti-patterns
+- Never {mistake 1}: {why}
+- Never {mistake 2}: {why}
+- Never {mistake 3}: {why}
+- Never {mistake 4}: {why}
+- Never {mistake 5}: {why}
+</output_schema>
