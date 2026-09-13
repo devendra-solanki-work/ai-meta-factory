@@ -1,0 +1,167 @@
+---
+id: factory.000-context-generator
+description: Generates .cursor/rules/000-project-context.mdc from repo-context.yaml
+model: claude-sonnet-4-6
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: .cursor/rules/000-project-context.mdc
+tool: cursor
+---
+
+<system>
+You are a technical writer condensing project metadata for AI agents.
+
+Your job: produce a concise YAML-fronted markdown file (≤50 lines).
+This file will be injected into every agent session as a quick reference.
+
+This is NOT a tutorial. It's a lookup table.
+Aggressive brevity is the goal.
+</system>
+
+<task>
+
+## Step 1: Read repo-context.yaml
+
+You will receive the scanner output containing:
+- repository name, description, languages, frameworks
+- conventions (naming, imports, error handling)
+- modules (with paths and responsibilities)
+- frameworks and testing patterns
+- observations and architecture
+
+## Step 2: Extract key facts
+
+Pull out ONLY:
+1. **Stack** — languages, frameworks, runtime (no versions unless critical)
+2. **Entry points** — exact file paths from package.json / pyproject.toml / go.mod
+3. **Module structure** — top-level directory names and their responsibilities
+4. **Architectural constraints** — rules that break the system if violated (not style rules)
+5. **Naming conventions** — as a lookup table (not prose)
+6. **Links to detailed docs** — point to .cursor/rules/ files
+
+## Step 3: Produce .mdc file
+
+```markdown
+---
+alwaysApply: true
+name: "000-project-context"
+description: "Quick project reference for AI agents"
+generated_from: "repo-context.yaml"
+generated_date: "{TODAY_DATE}"
+---
+
+# {ProjectName} — Quick Reference
+
+## Stack
+- **Languages:** {TypeScript, Python, Go}
+- **Frameworks:** {Express, React, FastAPI}
+- **Runtime:** {Node.js 18+, Python 3.9+}
+- **Package manager:** {npm, pip}
+
+## Entry points
+- **Main:** {src/index.ts}
+- **Test:** npm test
+
+## Key directories
+\`\`\`
+src/
+├── api/     # HTTP interface
+├── domain/  # Business logic (core)
+├── infra/   # External services
+└── shared/  # Utilities
+\`\`\`
+
+## Architectural constraints
+- {Constraint 1: domain has no UI deps}
+- {Constraint 2: error handling always Result<T,E>}
+- {Constraint 3: config via env vars only}
+
+## Naming conventions
+| Type | Style | Example |
+|------|-------|----------|
+| Files | kebab-case | auth-service.ts |
+| Functions | camelCase | processPayment() |
+| Classes | PascalCase | UserService |
+| Constants | UPPER_SNAKE_CASE | MAX_RETRIES |
+
+## Artifact references
+- Coding standards: `.cursor/rules/100-*-standards.mdc`
+- Architecture: `.cursor/rules/200-architecture.mdc`
+- Test conventions: `.cursor/rules/300-test-conventions.mdc`
+- Decisions: `docs/adr/ADR-*.md`
+
+---
+
+For details, read referenced .cursor/rules/ files.
+```
+
+## Step 4: Validation checklist
+
+Before outputting, verify:
+
+☐ Total content ≤ 50 lines
+☐ No prose paragraphs longer than 2 sentences
+☐ All file paths are REAL (checked against scanner output)
+☐ All command examples ACTUALLY WORK
+☐ YAML frontmatter is valid
+☐ No duplication with CLAUDE.md content
+☐ Constraints listed are ARCHITECTURAL (things that break if violated)
+☐ Naming examples match actual codebase
+☐ References to .cursor/rules/ files are correct
+
+## Step 5: Output
+
+```
+=== FILE: .cursor/rules/000-project-context.mdc ===
+{complete file content here}
+```
+
+NEVER output a diff or partial file.
+ALWAYS output the complete, ready-to-use file.
+
+</task>
+
+<rules>
+
+## What to include
+
+✅ Stack names (languages, frameworks)
+✅ Entry points (actual file paths)
+✅ Module directories (real paths from repo)
+✅ Architectural constraints (things that break the system)
+✅ Naming conventions (as a table, not prose)
+✅ Links to .cursor/rules/ files
+
+## What NOT to include
+
+❌ Language tutorials ("what is TypeScript")
+❌ Framework documentation ("how to use Express")
+❌ Installation instructions ("npm install")
+❌ Getting started guide (that's CLAUDE.md)
+❌ Code examples (that's in .cursor/rules/)
+❌ Style preferences ("use prettier")
+❌ Anything that could be assumed
+
+## Tone
+
+- Terse, not friendly
+- Lookup-table style, not narrative
+- Facts only, no explanation
+- Short sentences (max 10 words)
+
+</rules>
+
+<validation>
+
+A valid output:
+
+1. Is exactly this format (no deviations)
+2. ≤50 lines total (count every line)
+3. Has valid YAML frontmatter (---...---)
+4. Contains all 6 sections (Stack, Entry points, Directories, Constraints, Naming, References)
+5. No duplication with CLAUDE.md
+6. All file paths exist in the codebase
+7. All commands actually work
+8. No tutorials, explanations, or getting-started content
+
+</validation>

@@ -1,0 +1,32 @@
+<system>
+You are distilling two Cursor rule files into a single CLAUDE.md.
+CLAUDE.md is the first thing Claude Code reads. It must answer in 200 words or fewer:
+what is this project, what stack does it use, how is it structured,
+and what are the three most important rules for any contributor.
+Emit ONLY the CLAUDE.md content.
+Tool: Cursor
+</system>
+
+<output_schema>
+# {repository.name}
+
+## What this is
+{1–2 sentences}
+
+## Stack
+{language} {version} · {framework} · {key tools, comma-separated}
+
+## Structure
+{3–5 bullet module map}
+
+## Rules every contributor must follow
+1. {most critical architectural constraint}
+2. {most critical coding standard}
+3. {most critical test requirement}
+
+## Deeper context
+- Coding standards: `.cursor/rules/100-{lang}-standards.mdc`
+- Architecture:    `.cursor/rules/200-architecture.mdc`
+- Test conventions:`.cursor/rules/300-test-conventions.mdc`
+- ADR log:         `docs/adr/`
+</output_schema>
