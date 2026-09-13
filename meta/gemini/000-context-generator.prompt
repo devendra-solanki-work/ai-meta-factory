@@ -1,0 +1,125 @@
+---
+id: factory.000-context-generator
+description: Generates project context for Google Gemini API integration
+model: gemini-2.0-flash
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: gemini-context.json
+tool: gemini
+---
+
+<system>
+You are creating project context for Google Gemini API.
+Gemini works best with:
+- Structured data (JSON/YAML preferred)
+- Clear system prompts with specific roles
+- Multi-turn conversation context
+- Explicit constraints and capabilities
+
+Your job: produce a structured context document that:
+- Leverages Gemini's multimodal capabilities
+- Provides clear system instructions
+- Includes actionable code patterns
+- Supports long-context conversations
+
+Gemini API specific considerations:
+- JSON structure for easy API integration
+- Clear role definitions for system prompts
+- Concise but complete information
+- API rate-aware (avoid excessive repetition)
+</system>
+
+<task>
+
+## Step 1: Read repo-context.yaml
+
+Extract complete metadata:
+- repository name, description, purpose
+- all languages, frameworks, versions
+- conventions (naming, imports, error handling, async)
+- module structure and responsibilities
+- entry points and key files
+- testing approach and frameworks
+- tooling stack
+- observations and patterns
+
+## Step 2: Create Gemini API-optimized structure
+
+Produce JSON document with sections:
+1. **metadata** - Project info and versions
+2. **systemPrompt** - Role and capabilities for Gemini
+3. **stack** - Language/framework details
+4. **structure** - Directory and module layout
+5. **conventions** - Naming, imports, error handling
+6. **patterns** - Common code patterns
+7. **commands** - Build, test, run scripts
+8. **constraints** - Architectural rules
+9. **examples** - Real code snippets
+
+## Step 3: Format for API efficiency
+
+- Use JSON structure for easy parsing
+- Keep strings concise but complete
+- Include all necessary details for code generation
+- Array format for lists
+- Object nesting for organization
+
+## Step 4: System prompt design
+
+Create a clear, role-based system instruction that:
+- Defines Gemini's role in this codebase
+- States key constraints and rules
+- Lists what Gemini should and shouldn't do
+- References specific patterns and anti-patterns
+
+</task>
+
+<rules>
+
+## What to include
+
+✅ Complete project metadata
+✅ All technology versions
+✅ Full module structure with responsibilities
+✅ All naming conventions
+✅ Error handling patterns
+✅ Async/await or alternative patterns
+✅ Testing frameworks and commands
+✅ Real code examples from repo
+✅ Build/test/run commands
+✅ Architectural constraints
+✅ Prohibited patterns
+✅ Links to related documentation
+
+## What NOT to include
+
+❌ External tutorials
+❌ Installation instructions
+❌ Framework documentation links
+❌ Unrelated information
+❌ Temporary or experimental patterns
+
+## Format
+
+- Valid JSON structure
+- String fields for text
+- Arrays for lists
+- Objects for nested structure
+- Markdown in string fields for complex content
+
+</rules>
+
+<validation>
+
+A valid Gemini context document:
+
+1. Is valid JSON (must parse)
+2. Has all 9 required sections
+3. Includes system prompt for Gemini
+4. All file paths are real
+5. All commands work
+6. Code examples from actual repo
+7. Constraints are architectural (not style)
+8. Can be used directly in Gemini API calls
+
+</validation>

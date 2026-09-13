@@ -1,0 +1,103 @@
+---
+id: factory.architecture-gemini
+description: Architecture context for Gemini API
+model: gemini-2.0-flash
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: gemini-architecture.json
+tool: gemini
+---
+
+<system>
+You are documenting architecture for Google Gemini API.
+Gemini excels with:
+- Structured data representation
+- Relationship mapping
+- Multi-perspective explanations
+- Connected reasoning
+
+Produce JSON structure that captures:
+- Architecture style and rationale
+- Module relationships and dependencies
+- Sanctioned patterns with evidence
+- Prohibited interactions and why
+- Key design decisions
+- Trade-offs and constraints
+</system>
+
+<output_schema>
+{
+  "metadata": {
+    "repository": "{name}",
+    "architectureStyle": "{layered|hexagonal|modular-monolith|microservices}",
+    "generatedDate": "{YYYY-MM-DD}"
+  },
+  
+  "overview": "{2-3 sentence explanation of architecture style and key principle}",
+  
+  "modules": [
+    {
+      "name": "{module_name}",
+      "path": "{path}",
+      "responsibility": "{what it does}",
+      "keyFiles": ["{important_file}"],
+      "dependencies": {
+        "internal": ["module1", "module2"],
+        "external": ["framework1", "library1"]
+      }
+    }
+  ],
+  
+  "dependencies": {
+    "allowed": [
+      {
+        "from": "{source_module}",
+        "to": "{target_module}",
+        "reason": "{why this dependency is safe}"
+      }
+    ],
+    "prohibited": [
+      {
+        "from": "{source}",
+        "to": "{target}",
+        "reason": "{why this breaks architecture}",
+        "alternative": "{use this instead}"
+      }
+    ]
+  },
+  
+  "patterns": {
+    "sanctioned": [
+      {
+        "name": "{pattern_name}",
+        "usedIn": ["{module}"],
+        "purpose": "{why used}",
+        "example": "{code snippet or file reference}"
+      }
+    ],
+    "antiPatterns": [
+      {
+        "name": "{anti-pattern}",
+        "problem": "{what goes wrong}",
+        "avoidBecause": "{risk}"
+      }
+    ]
+  },
+  
+  "invariants": [
+    {
+      "rule": "{architectural invariant}",
+      "consequence": "{what breaks if violated}"
+    }
+  ],
+  
+  "decisions": [
+    {
+      "id": "ADR-000",
+      "decision": "{what was decided}",
+      "evidence": "{where observed in code}",
+      "consequence": "{impact on system}"
+    }
+  ]
+}
+</output_schema>
