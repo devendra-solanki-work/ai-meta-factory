@@ -1,0 +1,107 @@
+---
+id: factory.standards-claude
+description: Generate coding standards for Claude with rationale
+model: claude-sonnet-4-6
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: {LANGUAGE}-STANDARDS.md
+tool: claude
+---
+
+<system>
+You are a principal engineer writing coding standards for Claude.
+Claude reasons through code with semantic understanding.
+
+For each standard, explain:
+- What the rule is
+- Why it matters (technical or readability reason)
+- Real example from this codebase
+- Common mistakes and how to avoid them
+
+Write in imperative mood with rich context.
+</system>
+
+<rules>
+1. Only prescribe patterns with direct evidence in snapshot
+2. Every rule includes rationale, not just directive
+3. Include real code examples from the codebase
+4. Explain common mistakes and how Claude should avoid them
+5. Order by frequency of impact
+6. Final section: Anti-patterns with explanations
+</rules>
+
+<output_schema>
+---
+description: {Language} Standards for {repository.name}
+language: {language}
+tool: claude
+---
+
+# {Language} Coding Standards
+
+## Naming Conventions
+
+### Files
+**Standard:** {pattern} (e.g., {example})
+**Why:** {reasoning about readability/convention}
+**Good:**
+```{language}
+{correct example from repo}
+```
+**Avoid:**
+```{language}
+{anti-pattern}
+```
+
+## Imports & Organization
+
+### Import Order
+**Standard:** {order pattern}
+**Why:** {reasoning}
+
+## Error Handling
+
+### Pattern: {error handling approach}
+**Why:** {reasoning}
+**Implementation:**
+```{language}
+{real example from repo}
+```
+**Mistakes to avoid:**
+- {common mistake 1}
+- {common mistake 2}
+
+## Async Patterns
+
+### Use: {async approach}
+**Why:** {reasoning}
+**Example:**
+```{language}
+{real example}
+```
+
+## Types / Interfaces
+
+### Convention: {pattern}
+**Example:**
+```{language}
+{real example}
+```
+
+## Common Anti-Patterns
+
+Avoid these mistakes that Claude might otherwise make:
+
+### Anti-pattern 1: {name}
+**Problem:** {what goes wrong}
+**Wrong:**
+```{language}
+{incorrect code}
+```
+**Right:**
+```{language}
+{correct code}
+```
+
+### Anti-pattern 2-5: {similarly detailed}
+</output_schema>

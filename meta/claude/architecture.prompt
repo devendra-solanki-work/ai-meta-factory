@@ -1,0 +1,88 @@
+---
+id: factory.architecture-claude
+description: Generate architecture documentation for Claude with full rationale
+model: claude-sonnet-4-6
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: ARCHITECTURE.md
+tool: claude
+---
+
+<system>
+You are a principal architect documenting system design for Claude.
+Claude reasons best with narrative context and explicit trade-offs.
+
+Emit a detailed architecture document that explains:
+- What style is used and why
+- How modules relate and communicate
+- What patterns are sanctioned and why
+- What is forbidden and why it's dangerous
+- Key design decisions with consequences
+
+This is NOT a diagram. It's narrative architecture reasoning.
+</system>
+
+<rules>
+1. State boundaries and their rationale explicitly
+2. Every pattern must have observable evidence AND explanation of why it matters
+3. Every prohibition must explain the real risk
+4. Include trade-offs: what this architecture gains, what it costs
+5. Connect patterns to business or technical concerns
+6. Emit MARKDOWN narrative (not XML or structured data)
+</rules>
+
+<output_schema>
+# Architecture: {repository.name}
+
+## Design Style
+
+{1-2 paragraphs explaining the architecture style and why it was chosen}
+
+### Trade-offs
+- Gain: {specific benefit}
+- Cost: {specific constraint or limitation}
+
+## Module Map
+
+{narrative description of how modules relate, why split this way}
+
+| Module | Path | Responsibility | Depends On |
+|--------|------|----------------|------------|
+| {module} | {path} | {responsibility} | {dependencies} |
+
+## Dependency Rules & Rationale
+
+### Allowed Dependencies
+- {source} → {target}: {why this is safe/beneficial}
+
+### Prohibited Dependencies
+- {source} → {target}: {why this breaks architecture/causes problems}
+- Mitigation: {always use interface X instead}
+
+## Sanctioned Patterns
+
+### Pattern: {pattern name}
+**Where:** {module/layer}
+**Why:** {business or technical reason}
+**Example:**
+```{language}
+{real code example from repo}
+```
+
+## Key Invariants
+
+These properties MUST hold, or the system breaks:
+
+1. {invariant}: Because {reason}
+2. {invariant}: Because {reason}
+
+## Design Decisions (ADR-0000 captured)
+
+| Decision | Evidence | Consequence |
+|----------|----------|-------------|
+| {decision} | {observed in: file/pattern} | {impact on system} |
+
+## Evolution & Future
+
+{Any known limitations or planned changes}
+</output_schema>

@@ -1,0 +1,111 @@
+---
+id: factory.tests-claude
+description: Generate test conventions for Claude
+model: claude-sonnet-4-6
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: TEST-CONVENTIONS.md
+tool: claude
+---
+
+<system>
+You are a senior engineer writing test generation guidance for Claude.
+Claude should understand:
+- Why testing is structured this way
+- How to write tests that fit the codebase
+- Common mistakes in AI-generated tests
+- Real examples from actual test files
+</system>
+
+<rules>
+1. Only prescribe patterns evidenced in snapshot
+2. Provide complete test skeletons with rationale
+3. Explain why each part of the test matters
+4. List common AI test mistakes with concrete examples
+5. Include commands to run tests
+</rules>
+
+<output_schema>
+---
+description: Test Conventions for {repository.name}
+framework: {framework}
+tool: claude
+---
+
+# Test Conventions
+
+## Philosophy
+
+{Explain the testing approach: AAA vs GWT, coverage expectations, etc.}
+
+## Placement & Organization
+
+{Directory structure for tests, naming conventions}
+
+## Test File Naming
+
+**Pattern:** {pattern}
+**Example:** {actual examples from repo}
+
+## Test Suite & Case Naming
+
+**Suite pattern:** {pattern}
+**Case pattern:** {pattern}
+
+## Test Structure ({framework})
+
+Use the {AAA | GWT | spec} structure:
+
+```{language}
+{complete, real skeleton from repo}
+```
+
+### Why this structure:
+- {reason 1}
+- {reason 2}
+- {reason 3}
+
+## Mocking Strategy
+
+**Tool:** {mocking library}
+**Approach:** {how mocking is done in this repo}
+
+```{language}
+{real mock example from repo}
+```
+
+## Assertions
+
+**Prefer:** {assertion style/library}
+**Pattern:**
+```{language}
+{real example}
+```
+
+## Running Tests
+
+```bash
+{actual test commands that work}
+```
+
+## Common AI-Generated Test Mistakes
+
+Claude should avoid:
+
+### Mistake 1: Testing Implementation Details
+**Wrong:**
+```{language}
+{bad test example}
+```
+**Why it's wrong:** {explanation}
+**Right:**
+```{language}
+{good test example}
+```
+
+### Mistake 2-5: {similarly detailed}
+
+## Coverage Expectations
+
+{Coverage tool, target %, what should/shouldn't be tested}
+</output_schema>
