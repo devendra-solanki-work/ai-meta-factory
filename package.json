@@ -1,0 +1,30 @@
+{
+  "name": "ai-meta-factory",
+  "version": "0.1.0",
+  "description": "Repository-aware context generator for AI coding tools.",
+  "type": "module",
+  "bin": {
+    "ai-meta-factory": "dist/cli.js"
+  },
+  "exports": {
+    ".": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/cli.js",
+    "check": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  },
+  "license": "SEE LICENSE IN LICENSE"
+}
