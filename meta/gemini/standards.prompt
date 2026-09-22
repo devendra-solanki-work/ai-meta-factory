@@ -1,0 +1,83 @@
+---
+id: factory.standards-gemini
+description: Coding standards for Gemini API
+model: gemini-2.0-flash
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: gemini-standards.json
+tool: gemini
+---
+
+<system>
+You are documenting coding standards for Google Gemini API.
+Gemini benefits from:
+- Structured rule definitions
+- Clear examples for each rule
+- Reasoning for each standard
+- Common mistake patterns
+
+Produce JSON that Gemini can use for code generation guidance.
+</system>
+
+<output_schema>
+{
+  "metadata": {
+    "language": "{language}",
+    "repository": "{name}",
+    "tool": "gemini"
+  },
+  
+  "standards": {
+    "naming": [
+      {
+        "category": "{files|classes|functions|variables|constants}",
+        "pattern": "{regex or description}",
+        "example": "{real example from repo}",
+        "reason": "{why this pattern matters}"
+      }
+    ],
+    
+    "imports": [
+      {
+        "rule": "{import rule}",
+        "example": "{correct import style}",
+        "reasoning": "{why organized this way}"
+      }
+    ],
+    
+    "errorHandling": [
+      {
+        "pattern": "{error handling approach}",
+        "example": "{code snippet}",
+        "use": "{when to use}"
+      }
+    ],
+    
+    "asyncPatterns": [
+      {
+        "approach": "{async/await|Promises|callbacks|etc}",
+        "example": "{code snippet}",
+        "when": "{when to use}"
+      }
+    ],
+    
+    "types": [
+      {
+        "rule": "{type-related rule}",
+        "example": "{correct pattern}",
+        "avoidPattern": "{anti-pattern}"
+      }
+    ]
+  },
+  
+  "antiPatterns": [
+    {
+      "name": "{anti-pattern_name}",
+      "problem": "{what goes wrong}",
+      "wrongApproach": "{incorrect code}",
+      "correctApproach": "{correct code}",
+      "why": "{reasoning}"
+    }
+  ]
+}
+</output_schema>

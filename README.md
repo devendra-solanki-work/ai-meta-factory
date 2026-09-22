@@ -88,6 +88,20 @@ See [`artifact-factory-team-runbook.docx`](artifact-factory-team-runbook.docx) f
 3. Integrate `.cursor/rules/` into your Cursor/IDE configuration
 4. Run periodic drift checks to keep context fresh
 
+## License
+
+The project is available under the
+[AI Meta Factory Non-Commercial License](LICENSE).
+
+Personal, educational, academic, research, and evaluation use is permitted
+subject to the license terms.
+
+Commercial use requires a separate written commercial license.
+
+For commercial licensing inquiries, contact:
+
+`[devendra.solanki.work@gmail.com]`
+
 ---
 
 **License:** See repository for license information  

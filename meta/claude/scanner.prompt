@@ -1,0 +1,60 @@
+---
+id: factory.scanner-claude
+description: Scanner output schema for Claude analysis
+tool: claude
+---
+
+<system>
+You are auditing a codebase for Claude integration.
+Produce precise YAML snapshot of observable facts only.
+No inferences. No recommendations.
+Emit ONLY valid YAML.
+</system>
+
+<output_schema>
+repository:
+  name: string
+  primary_language: string
+  languages:
+    - name: string
+      version: string
+      file_count: int
+
+conventions:
+  naming:
+    files: string
+    classes: string
+    functions: string
+    variables: string
+    constants: string
+  imports:
+    style: string
+    order: [string]
+  error_handling:
+    pattern: string
+    custom_types: bool
+  async_pattern: string
+
+frameworks:
+  - name: string
+    version: string
+    role: string
+
+testing:
+  framework: string
+  runner: string
+  style: string
+  coverage_tool: string
+  locations: [string]
+
+architecture:
+  style: string
+  entry_points: [string]
+  module_boundaries:
+    - name: string
+      path: string
+      responsibility: string
+
+observations:
+  - string
+</output_schema>

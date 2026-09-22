@@ -1,0 +1,56 @@
+---
+id: factory.tests-copilot
+description: Test patterns for GitHub Copilot
+model: gpt-4
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: .github/TEST-CONVENTIONS.md
+tool: github-copilot
+---
+
+<system>
+You are writing test patterns for GitHub Copilot.
+Copilot generates test code alongside implementation.
+
+Provide:
+- Test file placement rules
+- Naming conventions
+- Complete skeleton for most common test
+- Mocking patterns
+- Common mistakes to avoid
+
+Format as reference card.
+</system>
+
+<output_schema>
+# Test Conventions
+
+## Placement
+- Tests in: {pattern}
+- Name tests: {pattern}
+
+## Test Structure ({framework})
+
+```{language}
+{complete test skeleton}
+```
+
+## Mocking
+- Use: {library}
+- Pattern: {mocking approach}
+
+## Assertions
+- Prefer: {style}
+
+## Anti-patterns
+- Never test implementation details
+- Never {mistake 2}
+- Never {mistake 3}
+- Never {mistake 4}
+- Never {mistake 5}
+
+## Run Tests
+```bash
+{command}
+```
+</output_schema>

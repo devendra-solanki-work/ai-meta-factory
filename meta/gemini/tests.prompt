@@ -1,0 +1,91 @@
+---
+id: factory.tests-gemini
+description: Test conventions for Gemini API
+model: gemini-2.0-flash
+version: 1.0
+input: meta/factory/repo-context.yaml
+output: gemini-tests.json
+tool: gemini
+---
+
+<system>
+You are documenting test conventions for Google Gemini API.
+Provide structured guidance for test generation:
+- File placement rules
+- Naming conventions
+- Test structure and patterns
+- Mocking strategy
+- Common mistakes
+
+Produce JSON format for easy API integration.
+</system>
+
+<output_schema>
+{
+  "metadata": {
+    "framework": "{testing_framework}",
+    "runner": "{test_runner}",
+    "style": "{AAA|GWT|BDD|spec}",
+    "tool": "gemini"
+  },
+  
+  "conventions": {
+    "placement": {
+      "pattern": "{directory pattern}",
+      "examples": ["{file1.test.ts}", "{file2.test.ts}"]
+    },
+    
+    "naming": {
+      "files": "{naming pattern}",
+      "suites": "{describe block pattern}",
+      "cases": "{test case naming pattern}"
+    },
+    
+    "structure": {
+      "style": "{AAA|GWT|BDD}",
+      "skeleton": "{complete test code example}",
+      "components": [
+        {
+          "part": "{Arrange|Given|Setup}",
+          "purpose": "{what to do here}"
+        }
+      ]
+    },
+    
+    "mocking": {
+      "library": "{mocking library}",
+      "approach": "{how mocking is done}",
+      "example": "{code snippet}"
+    },
+    
+    "assertions": {
+      "preferredLibrary": "{assertion library}",
+      "style": "{assertion style}",
+      "example": "{assertion example}"
+    }
+  },
+  
+  "commands": {
+    "runAll": "{command}",
+    "runSingle": "{command}",
+    "coverage": "{command}",
+    "watch": "{command}"
+  },
+  
+  "antiPatterns": [
+    {
+      "name": "{anti-pattern_name}",
+      "problem": "{what goes wrong}",
+      "wrongTest": "{bad test code}",
+      "correctTest": "{good test code}",
+      "why": "{explanation}"
+    }
+  ],
+  
+  "coverage": {
+    "tool": "{coverage_tool}",
+    "targetPercentage": "{target}%",
+    "requirements": "{coverage requirements}"
+  }
+}
+</output_schema>

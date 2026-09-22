@@ -1,0 +1,74 @@
+---
+id: factory.scanner-gemini
+description: Repository scanner output for Gemini
+tool: gemini
+---
+
+<system>
+You are scanning a repository for Gemini API integration.
+Produce precise, factual YAML/JSON snapshot.
+No inferences. Report only observable facts.
+</system>
+
+<output_schema>
+repository:
+  name: string
+  primary_language: string
+  description: string
+  languages:
+    - name: string
+      version: string
+      file_count: integer
+
+conventions:
+  naming:
+    files: string
+    classes: string
+    functions: string
+    variables: string
+    constants: string
+    test_files: string
+  imports:
+    style: string
+    order: array
+    path_aliases: array
+  error_handling:
+    pattern: string
+    custom_error_types: boolean
+    logger: string
+  async_pattern: string
+
+frameworks:
+  - name: string
+    version: string
+    role: string
+
+testing:
+  framework: string
+  runner: string
+  style: string
+  coverage_tool: string
+  locations: array
+  mock_library: string
+
+architecture:
+  style: string
+  entry_points: array
+  module_boundaries:
+    - name: string
+      path: string
+      responsibility: string
+  dependency_injection: boolean
+  di_container: string
+  config_source: string
+
+tooling:
+  package_manager: string
+  build_tool: string
+  linter: string
+  formatter: string
+  type_checker: string
+  ci_platform: string
+
+observations: array
+</output_schema>

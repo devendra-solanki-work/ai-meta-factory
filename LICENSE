@@ -1,0 +1,110 @@
+AI META FACTORY NON-COMMERCIAL LICENSE
+Version 1.0 — 2026
+
+Copyright (c) 2026 Devendra Solanki
+
+1. Definitions
+
+“Software” means the ai-meta-factory source code, documentation,
+prompt files, templates, configuration, and other materials distributed
+with this license.
+
+“Commercial Use” means any use of the Software that is intended for or
+directly connected with commercial advantage, monetary compensation,
+revenue generation, business operations, paid services, or economic benefit.
+
+Commercial Use includes, without limitation:
+
+a. use by a company, business, agency, or other commercial organization;
+b. use in developing, testing, operating, or maintaining a commercial product;
+c. use for internal business, engineering, consulting, or client work;
+d. use in a paid service, hosted service, SaaS product, or managed service;
+e. use in work delivered to a paying customer;
+f. selling, sublicensing, leasing, renting, or redistributing the Software;
+g. embedding the Software into a commercial product or service;
+h. offering support, training, implementation, or other paid services
+   substantially based on the Software.
+
+“Non-Commercial Use” means personal, educational, academic, research,
+evaluation, or other use that is not Commercial Use.
+
+“Licensor” means Devendra Solanki.
+
+2. Permission for Non-Commercial Use
+
+Subject to the conditions in this license, the Licensor grants you a
+limited, worldwide, non-exclusive, non-transferable, non-sublicensable,
+royalty-free license to use, copy, modify, and distribute the Software
+solely for Non-Commercial Use.
+
+3. Commercial Use Requires Permission
+
+Commercial Use is not permitted under this license.
+
+You must obtain a separate written commercial license from the Licensor
+before undertaking any Commercial Use.
+
+Commercial licensing inquiries:
+
+Email: [YOUR-COMMERCIAL-LICENSE-EMAIL]
+Repository: https://github.com/devendra-solanki-work/ai-meta-factory
+
+4. Distribution Conditions
+
+For permitted Non-Commercial Use, you must:
+
+a. retain this license notice;
+b. retain the copyright notice;
+c. include a copy of this license with any distribution;
+d. clearly identify modifications made to the Software; and
+e. not represent modified Software as the original Software.
+
+You may not sell, sublicense, or commercially redistribute the Software
+or any derivative work under this license.
+
+5. Restrictions
+
+You may not:
+
+a. use the Software for Commercial Use;
+b. remove or alter copyright, license, or attribution notices;
+c. use the Licensor's name, trademarks, or branding to imply endorsement;
+d. circumvent the commercial licensing requirements of this license; or
+e. distribute the Software in a manner that suggests it is available
+   for unrestricted commercial use.
+
+6. No Trademark License
+
+This license does not grant permission to use the name, trademarks,
+logos, service marks, or branding of the Licensor or the project,
+except as reasonably necessary to identify the Software.
+
+7. No Warranty
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT.
+
+8. Limitation of Liability
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE LICENSOR SHALL NOT
+BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM, OUT OF,
+OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+9. Termination
+
+This license terminates automatically if you breach its terms.
+
+Upon termination, you must stop using, copying, modifying, and distributing
+the Software, except that permissions granted to recipients who complied
+with this license before termination will not be revoked solely because
+of your breach.
+
+10. Reservation of Rights
+
+All rights not expressly granted under this license are reserved by the
+Licensor.
+
+This license is not an open-source license because it restricts Commercial
+Use.
