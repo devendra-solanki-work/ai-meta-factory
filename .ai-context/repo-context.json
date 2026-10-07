@@ -1,0 +1,41 @@
+{
+  "repository": {
+    "name": "ai-meta-factory",
+    "description": "Repository-aware context generator for AI coding tools.",
+    "primaryLanguage": "TypeScript",
+    "languages": [
+      "TypeScript"
+    ]
+  },
+  "stack": {
+    "frameworks": [],
+    "packageManager": "npm",
+    "runtime": "Node.js"
+  },
+  "structure": {
+    "directories": [
+      "LICENSE",
+      "meta",
+      "packages",
+      "src"
+    ],
+    "entryPoints": [
+      "src/index.ts"
+    ]
+  },
+  "conventions": {
+    "files": "Observe existing file naming and preserve repository conventions.",
+    "tests": null
+  },
+  "commands": {
+    "build": "tsc",
+    "test": null,
+    "dev": "node dist/cli.js"
+  },
+  "constraints": [
+    "Generated artifacts must remain evidence-backed.",
+    "Do not overwrite user-authored files without explicit confirmation."
+  ],
+  "generatedAt": "2026-10-07T18:13:31.694Z",
+  "systemPrompt": "You are an evidence-driven assistant for ai-meta-factory. Follow the repository constraints and do not invent missing facts."
+}
