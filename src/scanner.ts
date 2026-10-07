@@ -4,6 +4,23 @@ import type { RepoContext } from './types.js';
 
 const ignored = new Set(['.git', 'node_modules', 'dist', 'build', 'coverage', '.next', '.venv']);
 
+interface PackageJsonData {
+  name?: string;
+  description?: string;
+  scripts?: Record<string, string>;
+  packageManager?: string;
+  dependencies?: Record<string, string>;
+  devDependencies?: Record<string, string>;
+}
+
+function packageJson(root: string): PackageJsonData {
+  try {
+    return JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
+  } catch {
+    return {};
+  }
+}
+
 function files(root: string, depth = 0): string[] {
   if (depth > 4) return [];
   const result: string[] = [];
@@ -49,14 +66,6 @@ function detectLanguage(paths: string[]): string[] {
     if (detected) result.add(detected);
   }
   return [...result].sort();
-}
-
-function packageJson(root: string): { name?: string; description?: string; scripts?: Record<string, string>; packageManager?: string } {
-  try {
-    return JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
-  } catch {
-    return {};
-  }
 }
 
 export function scan(root: string): RepoContext {
