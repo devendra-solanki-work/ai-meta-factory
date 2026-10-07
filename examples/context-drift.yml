@@ -1,0 +1,22 @@
+name: Repository Context Drift
+# Suggested workflow for projects using ai-meta-factory.
+# Copy this file into YOUR project's .github/workflows/ directory.
+#
+# This check ensures your generated AI context (.ai-context/repo-context.json)
+# stays in sync with your actual codebase as it evolves.
+# When it fails, re-run: npx ai-meta-factory generate
+on:
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 1'   # Every Monday at 06:00 UTC
+  workflow_dispatch:
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '>=18'
+      - name: Check for context drift
+        run: npx --yes ai-meta-factory@latest drift-check

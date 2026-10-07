@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { dirname, join, resolve } from 'node:path';
 import { render, targets } from './adapters.js';
 import { scan } from './scanner.js';
 import { stagePipeline } from './stages.js';
@@ -46,7 +46,7 @@ if (command === 'prompt') {
 
       for (const file of result.files) {
         const destination = join(root, file.path);
-        const directory = destination.slice(0, destination.lastIndexOf('/'));
+        const directory = dirname(destination);
 
         if (existsSync(destination) && !force) {
           console.log(`     ⏭️  SKIP ${file.path} (exists; use --force to replace)`);
@@ -72,7 +72,7 @@ if (command === 'prompt') {
 for (const selected of targets(target)) {
   for (const file of render(context, selected)) {
     const destination = join(root, file.path);
-    const directory = destination.slice(0, destination.lastIndexOf('/'));
+    const directory = dirname(destination);
     if (existsSync(destination) && !force) {
       console.log(`SKIP ${file.path} (exists; use --force to replace)`);
       continue;
