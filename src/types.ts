@@ -1,4 +1,5 @@
 export type Target = 'cursor' | 'github-copilot' | 'claude' | 'gemini' | 'generic' | 'all';
+export type PromptStage = 'scanner' | 'context-generator' | 'architecture' | 'standards' | 'tests' | 'drift-check' | 'claudemd' | 'all';
 
 export interface RepoContext {
   repository: {
@@ -32,4 +33,12 @@ export interface RepoContext {
 export interface RenderedFile {
   path: string;
   content: string;
+}
+
+export interface StageOutput {
+  stage: PromptStage;
+  target: Exclude<Target, 'all'>;
+  files: RenderedFile[];
+  timestamp: string;
+  status: 'success' | 'skipped';
 }

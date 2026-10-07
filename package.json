@@ -1,10 +1,23 @@
 {
   "name": "ai-meta-factory",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Repository-aware context generator for AI coding tools.",
+  "keywords": [
+    "ai",
+    "coding-agents",
+    "repository-context",
+    "developer-tools",
+    "artificial-intelligence"
+  ],
+  "author": "Devendra Solanki",
+  "homepage": "https://github.com/devendra-solanki-work/ai-meta-factory",
   "type": "module",
   "bin": {
     "ai-meta-factory": "dist/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/devendra-solanki-work/ai-meta-factory.git"
   },
   "exports": {
     ".": "./dist/index.js"
@@ -17,7 +30,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/cli.js",
-    "check": "tsc --noEmit"
+    "check": "tsc --noEmit" 
   },
   "engines": {
     "node": ">=18"
