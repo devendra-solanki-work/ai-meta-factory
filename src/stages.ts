@@ -713,7 +713,7 @@ export function stagePipeline(context: RepoContext, target: Exclude<Target, 'all
       });
       continue;
     }
-    const files = stage === 'scanner' || stage === 'drift-check' ? generator(context) : generator(context, target);
+    const files = generator(context, target);
     results.push({
       stage,
       target,
