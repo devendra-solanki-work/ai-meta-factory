@@ -68,19 +68,6 @@ function detectLanguage(paths: string[]): string[] {
   return [...result].sort();
 }
 
-function packageJson(root: string): {
-  name?: string;
-  description?: string;
-  scripts?: Record<string, string>;
-  packageManager?: string;
-  dependencies?: Record<string, string>;
-} {
-  try {
-    return JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'));
-  } catch {
-    return {};
-  }
-}
 
 export function scan(root: string): RepoContext {
   const paths = files(root);
